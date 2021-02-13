@@ -1,6 +1,6 @@
 # drumbud
 
-A new Flutter project.
+A simple way for drummers to manage and track their practice routine.
 
 ## Getting Started
 
