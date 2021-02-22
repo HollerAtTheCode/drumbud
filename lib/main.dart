@@ -1,5 +1,9 @@
+import 'package:drumbud/screens/metronome.dart';
+import 'package:drumbud/screens/practice.dart';
+import 'package:drumbud/screens/screens.dart';
 import 'package:flutter/material.dart';
-import "colors.dart";
+import 'shared/shared.dart';
+import "globals.dart";
 
 void main() {
   runApp(MyApp());
@@ -25,8 +29,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MainPage extends StatefulWidget {
-  MainPage({Key key}) : super(key: key);
-
   @override
   _MainPageState createState() => _MainPageState();
 }
@@ -34,10 +36,10 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Index 0: Practice'),
-    Text('Index 0: Metronome'),
-    Text('Index 0: Tracking'),
+  static List _mainPageOptions = [
+    PracticeScreen(),
+    MetronomeScreen(),
+    TrackingScreen(),
   ];
 
   void _onBarItemTapped(int index) {
@@ -61,13 +63,14 @@ class _MainPageState extends State<MainPage> {
         ),
         backgroundColor: lightGrey,
       ),
-      body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
+      body: _mainPageOptions[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _onBarItemTapped,
         backgroundColor: darkGrey,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         currentIndex: _selectedIndex,
+        type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Image.asset(
