@@ -15,4 +15,5 @@ Color mainOrange = Color(0xFFF77702);
 TextStyle tileHeading = TextStyle(
   color: Colors.white,
   fontFamily: "Harvest",
+  fontWeight: FontWeight.bold,
 );

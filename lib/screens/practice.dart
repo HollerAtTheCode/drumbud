@@ -32,7 +32,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
               ),
             ],
           ),
-          ExerciseList(),
+          _topBarIndex == 0 ? ExerciseList() : Text("Routines"),
         ],
       ),
     );

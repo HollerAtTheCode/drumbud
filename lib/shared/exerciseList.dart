@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:drumbud/globals.dart';
 import 'package:flutter/material.dart';
 import 'package:drumbud/models/models.dart';
@@ -33,9 +35,21 @@ class _ExerciseListState extends State<ExerciseList> {
     Exercise exercise = exerciseMockList[index];
     return ListTile(
       tileColor: midGrey,
-      dense: true,
+      trailing: Container(
+        width: 25,
+        height: 25,
+        child: FloatingActionButton(
+          backgroundColor: Colors.transparent,
+          onPressed: () => deleteTile(index),
+          child: Image.asset("assets/img/icons/delete.png"),
+        ),
+      ),
       key: Key(exercise.id.toString()),
       title: ExerciseTitleLine(exercise),
     );
+  }
+
+  deleteTile(int index) {
+    log("item ${exerciseMockList[index].name} gelöscht");
   }
 }
